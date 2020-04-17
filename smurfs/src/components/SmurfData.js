@@ -30,10 +30,6 @@ const mapStateToProps = (state) => {
 	return {
 		smurf: state.smurf,
 		error: state.error,
-		// name: state.name.name,
-		// isFetching: state.name.isFetching,
-		// age: state.name.age,
-		// height: state.name.height,
 	};
 };
 
