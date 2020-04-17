@@ -1,3 +1,5 @@
+import { FETCH_SMURF_START } from '../actions/smurfActions';
+
 const initialState = {
 	smurf: [],
 	isFetching: false,
@@ -23,6 +25,25 @@ const smurfReducer = (state = initialState, action) => {
 				isFetching: false,
 				error: action.payload,
 			};
+
+		case 'POST_SMURF_START':
+			return {
+				...state,
+				isFetching: true,
+			};
+		case 'POST_SMURF_SUCCESS':
+			return {
+				...state,
+				isFetching: false,
+				smurf: action.payload,
+			};
+		case 'POST_SMURF_FAILURE':
+			return {
+				...state,
+				isFetching: false,
+				error: action.payload,
+			};
+
 		default:
 			return state;
 	}

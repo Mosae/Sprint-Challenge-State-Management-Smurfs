@@ -26,7 +26,7 @@ const SmurfForm = (props) => {
 
 	return (
 		<div>
-			<form onSubmit={handleChanges}>
+			<form onSubmit={handleSubmit}>
 				<div>
 					<input
 						type="text"
@@ -55,7 +55,7 @@ const SmurfForm = (props) => {
 					/>
 				</div>
 				<button className="submitButton" type="submit">
-					Create Smurf
+					Create New Smurf
 				</button>
 			</form>
 		</div>
