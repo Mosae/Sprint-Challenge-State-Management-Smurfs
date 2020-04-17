@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { fetchSmurf } from '../actions/smurfActions';
 
 const SmurfData = (props) => {
-	useEffect(() => {}, []);
+	console.log('these are props', props);
+	useEffect(() => {
+		props.fetchSmurf();
+	}, []);
 
 	return (
 		<div>
@@ -12,4 +16,12 @@ const SmurfData = (props) => {
 	);
 };
 
-export default SmurfData;
+const mapStateToProps = (state) => {
+	console.log(state);
+	return {
+		name: state.name.name,
+		isFetching: state.name.isFetching,
+	};
+};
+
+export default connect(mapStateToProps, { fetchSmurf })(SmurfData);
