@@ -1,9 +1,6 @@
 const initialState = {
-	name: 'Brainey - hard coded',
+	smurf: [],
 	isFetching: false,
-	age: 200,
-	height: '5cm',
-	id: 0,
 	error: '',
 };
 const smurfReducer = (state = initialState, action) => {
@@ -17,7 +14,7 @@ const smurfReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isFetching: false,
-				name: action.payload,
+				smurf: action.payload,
 				error: '',
 			};
 		case 'FETCH_SMURF_FAILURE':

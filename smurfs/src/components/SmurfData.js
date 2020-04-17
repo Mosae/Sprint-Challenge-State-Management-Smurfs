@@ -3,15 +3,24 @@ import { connect } from 'react-redux';
 import { fetchSmurf } from '../actions/smurfActions';
 
 const SmurfData = (props) => {
+	const initSmurf = props.fetchSmurf;
 	console.log('these are props', props);
 	useEffect(() => {
-		props.fetchSmurf();
-	}, []);
+		initSmurf();
+	}, [initSmurf]);
 
 	return (
-		<div>
-			<h2>Smurf name:</h2>
-			<h2>{props.name}</h2>
+		<div className="smurfData">
+			<h2>Smurf:</h2>
+			<h3>
+				{props.smurf.map((smurf) => (
+					<div className="smurf" key={smurf.id}>
+						<p>Name: {smurf.name}</p>
+						<p>Age: {smurf.age}</p>
+						<p>Height: {smurf.height}</p>
+					</div>
+				))}
+			</h3>
 		</div>
 	);
 };
@@ -19,8 +28,12 @@ const SmurfData = (props) => {
 const mapStateToProps = (state) => {
 	console.log(state);
 	return {
-		name: state.name.name,
-		isFetching: state.name.isFetching,
+		smurf: state.smurf,
+		error: state.error,
+		// name: state.name.name,
+		// isFetching: state.name.isFetching,
+		// age: state.name.age,
+		// height: state.name.height,
 	};
 };
 
